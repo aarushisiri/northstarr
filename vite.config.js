@@ -2,14 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
-const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "northstarr";
-const base = process.env.GITHUB_ACTIONS ? `/${repoName}/` : "/";
-
 // Northstar — personal operating system
 // PWA is configured so the app can be installed and used offline.
 // Future: swap the manifest icons for real artwork before shipping.
 export default defineConfig({
-  base,
   plugins: [
     react(),
     VitePWA({

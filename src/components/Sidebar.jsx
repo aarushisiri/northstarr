@@ -1,7 +1,11 @@
-import { CircleDot, AlertTriangle } from "lucide-react";
+import { CircleDot, AlertTriangle, LogOut } from "lucide-react";
 import { NAV_ITEMS } from "./navItems";
+import SyncStatus from "./SyncStatus";
+import { useAuth } from "../auth/AuthProvider";
 
-export default function Sidebar({ active, setActive, onSideways, sideways }) {
+export default function Sidebar({ active, setActive, onSideways, sideways, syncStatus }) {
+  const { user, signOut } = useAuth();
+
   return (
     <aside className="ns-sidebar">
       <div className="ns-brand">
@@ -32,6 +36,8 @@ export default function Sidebar({ active, setActive, onSideways, sideways }) {
       </nav>
 
       <div className="ns-sidebar-footer">
+        <SyncStatus status={syncStatus} />
+
         <button
           className={`ns-sideways-btn ${sideways ? "ns-sideways-btn-active" : ""}`}
           onClick={onSideways}
@@ -39,6 +45,13 @@ export default function Sidebar({ active, setActive, onSideways, sideways }) {
           <AlertTriangle size={15} strokeWidth={2} />
           <span>{sideways ? "Restore Full Day" : "Day Went Sideways"}</span>
         </button>
+
+        <div className="ns-account-row">
+          <span className="ns-account-email">{user?.email}</span>
+          <button className="ns-account-signout" onClick={signOut} title="Sign out">
+            <LogOut size={14} strokeWidth={2} />
+          </button>
+        </div>
       </div>
     </aside>
   );

@@ -41,3 +41,13 @@ export function greetingForHour(hour = new Date().getHours()) {
   if (hour < 21) return "Good evening";
   return "Winding down";
 }
+
+/** YYYY-MM-DD in local time — used as the primary key for daily_logs and
+ * journal_entries rows. Deliberately not UTC, so the day boundary matches
+ * where the person actually is, not the server's timezone. */
+export function todayDateKey(date = new Date()) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}

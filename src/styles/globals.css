@@ -124,7 +124,7 @@ button {
 .ns-nav-item-active { background: var(--surface-2); color: var(--text); }
 .ns-nav-item-active svg { color: var(--accent); }
 
-.ns-sidebar-footer { margin-top: auto; }
+.ns-sidebar-footer { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
 .ns-sideways-btn {
   width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
   background: var(--surface-2); border: 1px solid var(--border); color: var(--muted);
@@ -332,6 +332,73 @@ button {
 .ns-import-warning { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
 .ns-format-pre { font-family: var(--font-mono); font-size: 11px; color: var(--muted); white-space: pre-wrap; line-height: 1.6; max-height: 500px; overflow-y: auto; }
 .ns-future-card { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 12.5px; border-style: dashed; }
+
+.ns-reset-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-color: rgba(217,123,108,0.2); }
+.ns-reset-btn { display: flex; align-items: center; gap: 7px; flex-shrink: 0; white-space: nowrap; }
+.ns-reset-btn-confirm { border-color: var(--danger); color: var(--danger); }
+
+/* ---------------------------------------------------------------- */
+/* SYNC STATUS / ACCOUNT                                              */
+/* ---------------------------------------------------------------- */
+
+.ns-sync-status {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px; color: var(--muted);
+  padding: 6px 10px; border-radius: 8px; background: var(--surface-2);
+}
+.ns-sync-status svg { flex-shrink: 0; }
+.ns-sync-syncing svg { color: var(--accent-2); animation: ns-spin 1s linear infinite; }
+.ns-sync-offline { color: var(--danger); }
+.ns-sync-offline svg { color: var(--danger); }
+@keyframes ns-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.ns-account-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 8px 10px; border-top: 1px solid var(--border);
+}
+.ns-account-email {
+  font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; max-width: 140px;
+}
+.ns-account-signout {
+  background: none; color: var(--muted); padding: 4px; border-radius: 6px; flex-shrink: 0;
+}
+.ns-account-signout:hover { color: var(--danger); background: var(--surface-2); }
+
+.ns-account-actions { display: flex; flex-direction: column; gap: 16px; }
+.ns-account-action-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.ns-account-action-danger { padding-top: 16px; border-top: 1px solid var(--border); }
+.ns-account-action-danger .ns-section-title { color: var(--danger); }
+
+/* ---------------------------------------------------------------- */
+/* AUTH SCREEN                                                        */
+/* ---------------------------------------------------------------- */
+
+.ns-auth-screen {
+  width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--bg); padding: 24px;
+}
+.ns-auth-card {
+  width: 360px; max-width: 100%; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 6px;
+}
+.ns-auth-mark { margin-bottom: 8px; }
+.ns-auth-title { font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+.ns-auth-sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+.ns-auth-form { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.ns-auth-input {
+  width: 100%; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 11px 14px; color: var(--text); font-size: 13.5px; text-align: center;
+}
+.ns-auth-input:focus { border-color: var(--accent); }
+.ns-auth-submit { width: 100%; padding: 11px; }
+.ns-auth-sent {
+  display: flex; align-items: center; gap: 8px; color: var(--accent); font-size: 13px;
+  background: rgba(95,224,196,0.08); border: 1px solid rgba(95,224,196,0.25);
+  padding: 12px 14px; border-radius: 10px; margin-top: 4px;
+}
+.ns-auth-error { color: var(--danger); font-size: 12.5px; margin-top: 10px; }
 
 /* ---------------------------------------------------------------- */
 /* MOBILE                                                             */
