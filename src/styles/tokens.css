@@ -1,0 +1,17 @@
+:root {
+  --bg: #0a0c0f;
+  --surface: #14171c;
+  --surface-2: #1a1e24;
+  --border: #23272e;
+  --text: #edeef1;
+  --muted: #868d96;
+  --accent: #5fe0c4;
+  --accent-2: #e8b568;
+  --danger: #d97b6c;
+  --ring-track: #20242b;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
